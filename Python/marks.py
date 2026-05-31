@@ -19,7 +19,7 @@ if percentage >= 75:
 elif percentage >= 60:
     print("Result :First class")
 
-elif percentage >=45:
+elif percentage >= 50:
     print("Result :pass class")
 else:
     print("Result :fail")    
