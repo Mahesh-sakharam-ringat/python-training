@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Student Records</h1>
+
+<table class="table table-bordered table-striped">
+
+    <thead class="table-dark">
+        <tr>
+            <th>No</th>
+            <th>Roll No</th>
+            <th>Name</th>
+            <th>Score</th>
+            <th>Percentage</th>
+            <th>Exam Date</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+    {% for student in students %}
+        <tr>
+            <td>{{ loop.index }}</td>
+            <td>{{ student.roll }}</td>
+            <td>{{ student.name }}</td>
+            <td>{{ student.score }}</td>
+            <td>{{ student.percentage }}%</td>
+            <td>{{ student.date }}</td>
+
+            <td>
+                {% if student.status == "Pass" %}
+                    <span class="badge bg-success">
+                        Pass
+                    </span>
+                {% else %}
+                    <span class="badge bg-danger">
+                        Fail
+                    </span>
+                {% endif %}
+            </td>
+        </tr>
+    {% endfor %}
+
+    </tbody>
+
+</table>
+
+{% endblock %}

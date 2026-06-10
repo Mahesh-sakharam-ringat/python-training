@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1 class="text-center mb-5">
+    Welcome to Coaching class manager
+</h1>
+
+<div class="row text-center">
+
+    <div class="col-md-4">
+        <div class="card shadow">
+            <div class="card-body">
+                <h3>Total Students</h3>
+                <span class="badge bg-primary">{{ total }}</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card shadow">
+            <div class="card-body">
+                <h3>Passed Students</h3>
+                <span class="badge bg-success">{{ passed }}</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card shadow">
+            <div class="card-body">
+                <h3>Failed Students</h3>
+                <span class="badge bg-danger">{{ failed }}</span>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="card shadow mt-4">
+    <div class="card-body">
+        <h2>Project Features</h2>
+
+        <ul>
+            <li>Online MCQ Tests</li>
+            <li>Student Records</li>
+            <li>Score Calculation</li>
+            <li>Percentage Calculation</li>
+            <li>Pass / Fail Result</li>
+            <li>all students details</li>
+        </ul>
+        
+        </ul>
+    </div>
+</div>
+
+{% endblock %}
