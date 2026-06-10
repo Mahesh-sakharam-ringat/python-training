@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Search Records</h2>
+
+<form method="POST">
+
+<input class="form-control mb-2"
+name="keyword"
+placeholder="Search Student ID, Name or Teacher Name">
+
+<button class="btn btn-dark">
+Search
+</button>
+
+</form>
+
+<hr>
+
+{% if result %}
+
+<table class="table table-bordered">
+
+<tr>
+<th>Result</th>
+</tr>
+
+{% for r in result %}
+<tr>
+<td>{{ r }}</td>
+</tr>
+{% endfor %}
+
+</table>
+
+{% endif %}
+
+{% endblock %}

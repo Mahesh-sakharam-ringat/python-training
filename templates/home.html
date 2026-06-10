@@ -2,56 +2,37 @@
 
 {% block content %}
 
-<h1 class="text-center mb-5">
-    Welcome to Coaching class manager
-</h1>
+<h1 class="text-center">Welcome to Coaching Class Manager</h1>
 
-<div class="row text-center">
+<div class="row mt-4">
 
-    <div class="col-md-4">
-        <div class="card shadow">
-            <div class="card-body">
-                <h3>Total Students</h3>
-                <span class="badge bg-primary">{{ total }}</span>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-md-4">
-        <div class="card shadow">
-            <div class="card-body">
-                <h3>Passed Students</h3>
-                <span class="badge bg-success">{{ passed }}</span>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-md-4">
-        <div class="card shadow">
-            <div class="card-body">
-                <h3>Failed Students</h3>
-                <span class="badge bg-danger">{{ failed }}</span>
-            </div>
-        </div>
-    </div>
-
+<div class="col-md-4">
+<div class="card text-center">
+<div class="card-body">
+<h3>Total Students</h3>
+<h2>{{ total_students }}</h2>
+</div>
+</div>
 </div>
 
-<div class="card shadow mt-4">
-    <div class="card-body">
-        <h2>Project Features</h2>
+<div class="col-md-4">
+<div class="card text-center">
+<div class="card-body">
+<h3>Total Teachers</h3>
+<h2>{{ total_teachers }}</h2>
+</div>
+</div>
+</div>
 
-        <ul>
-            <li>Online MCQ Tests</li>
-            <li>Student Records</li>
-            <li>Score Calculation</li>
-            <li>Percentage Calculation</li>
-            <li>Pass / Fail Result</li>
-            <li>all students details</li>
-        </ul>
-        
-        </ul>
-    </div>
+<div class="col-md-4">
+<div class="card text-center">
+<div class="card-body">
+<h3>Total Courses</h3>
+<h2>{{ total_courses }}</h2>
+</div>
+</div>
+</div>
+
 </div>
 
 {% endblock %}

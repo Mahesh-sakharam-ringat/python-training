@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Course Management</h2>
+
+<form method="POST">
+
+<input class="form-control mb-2" name="id"
+placeholder="Course ID" required>
+
+<input class="form-control mb-2" name="name"
+placeholder="Course Name" required>
+
+<input class="form-control mb-2" name="duration"
+placeholder="Duration" required>
+
+<input class="form-control mb-2" name="fees"
+placeholder="Fees" required>
+
+<button class="btn btn-warning">
+Add Course
+</button>
+
+</form>
+
+<hr>
+
+<table class="table table-bordered">
+<tr>
+<th>ID</th>
+<th>Name</th>
+<th>Duration</th>
+<th>Fees</th>
+</tr>
+
+{% for c in courses %}
+<tr>
+<td>{{ c.id }}</td>
+<td>{{ c.name }}</td>
+<td>{{ c.duration }}</td>
+<td>{{ c.fees }}</td>
+</tr>
+{% endfor %}
+
+</table>
+
+{% endblock %}

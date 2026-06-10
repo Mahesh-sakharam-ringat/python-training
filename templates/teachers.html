@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Teacher Management</h2>
+
+<form method="POST">
+
+<input class="form-control mb-2" name="id"
+placeholder="Teacher ID" required>
+
+<input class="form-control mb-2" name="name"
+placeholder="Teacher Name" required>
+
+<input class="form-control mb-2" name="subject"
+placeholder="Subject" required>
+
+<input class="form-control mb-2" name="contact"
+placeholder="Contact Number" required>
+
+<button class="btn btn-primary">
+Add Teacher
+</button>
+
+</form>
+
+<hr>
+
+<table class="table table-bordered">
+<tr>
+<th>ID</th>
+<th>Name</th>
+<th>Subject</th>
+<th>Contact</th>
+</tr>
+
+{% for t in teachers %}
+<tr>
+<td>{{ t.id }}</td>
+<td>{{ t.name }}</td>
+<td>{{ t.subject }}</td>
+<td>{{ t.contact }}</td>
+</tr>
+{% endfor %}
+
+</table>
+
+{% endblock %}
