@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Add Teacher</h2>
+
+<form method="POST">
+
+<input type="text" name="teacher_id"
+class="form-control mb-2"
+placeholder="Teacher ID">
+
+<input type="text" name="teacher_name"
+class="form-control mb-2"
+placeholder="Teacher Name">
+
+<input type="text" name="subject"
+class="form-control mb-2"
+placeholder="Subject">
+
+<input type="text" name="contact"
+class="form-control mb-2"
+placeholder="Contact">
+
+<button class="btn btn-success">
+Save Teacher
+</button>
+
+</form>
+
+{% endblock %}

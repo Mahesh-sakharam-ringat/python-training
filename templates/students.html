@@ -2,51 +2,40 @@
 
 {% block content %}
 
-<h2>Student Registration</h2>
+<h2>Students</h2>
 
-<form method="POST">
-
-<input class="form-control mb-2" name="id"
-placeholder="Student ID" required>
-
-<input class="form-control mb-2" name="name"
-placeholder="Student Name" required>
-
-<input class="form-control mb-2" name="contact"
-placeholder="Contact Number" required>
-
-<input class="form-control mb-2" name="course"
-placeholder="Course Name" required>
-
-<input class="form-control mb-2" type="date"
-name="admission_date" required>
-
-<button class="btn btn-success">
-Register Student
-</button>
-
-</form>
-
-<hr>
-
-<h3>Display All Students</h3>
+<a href="/add_student"
+class="btn btn-primary mb-3">
+Add Student
+</a>
 
 <table class="table table-bordered">
+
 <tr>
 <th>ID</th>
 <th>Name</th>
+<th>Subject</th>
 <th>Contact</th>
-<th>Course</th>
-<th>Admission Date</th>
+<th>Date</th>
+<th>Action</th>
 </tr>
 
 {% for s in students %}
 <tr>
-<td>{{ s.id }}</td>
+
+<td>{{ s.student_id }}</td>
 <td>{{ s.name }}</td>
+<td>{{ s.subject }}</td>
 <td>{{ s.contact }}</td>
-<td>{{ s.course }}</td>
 <td>{{ s.admission_date }}</td>
+
+<td>
+<a href="/delete_student/{{s.id}}"
+class="btn btn-danger btn-sm">
+Delete
+</a>
+</td>
+
 </tr>
 {% endfor %}
 

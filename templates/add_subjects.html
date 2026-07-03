@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Add subject</h2>
+
+<form method="POST">
+
+<input type="text"
+name="subject_id"
+class="form-control mb-2"
+placeholder="Subject ID">
+
+<input type="text"
+name="subject_name"
+class="form-control mb-2"
+placeholder="Subject Name">
+
+<input type="text"
+name="duration"
+class="form-control mb-2"
+placeholder="Duration">
+
+<input type="number"
+name="fees"
+class="form-control mb-2"
+placeholder="Fees">
+
+<button class="btn btn-success">
+Save Subject
+</button>
+
+</form>
+
+{% endblock %}

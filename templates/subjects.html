@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Subjects</h2>
+
+<a href="/add_subjects"
+class="btn btn-warning mb-3">
+Add subjects
+</a>
+
+<table class="table table-bordered">
+
+<tr>
+<th>ID</th>
+<th>Name</th>
+<th>Duration</th>
+<th>Fees</th>
+</tr>
+
+{% for s in subjects %}
+<tr>
+
+<td>{{ s.subject_id }}</td>
+<td>{{ s.subject_name }}</td>
+<td>{{ s.duration }}</td>
+<td>{{ s.fees }}</td>
+</tr>
+{% endfor %}
+
+</table>
+
+{% endblock %}

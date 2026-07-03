@@ -1,39 +1,63 @@
-{% extends 'base.html' %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search - Coaching Class Manager</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+        .container {
+            width: 500px;
+            margin: auto;
+        }
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+        }
+        h2 {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
 
-{% block content %}
+<div class="container">
+    <h2>Search Students and Teachers</h2>
 
-<h2>Search Records</h2>
+        <a href = "{{url_for('students')}}" class = "btn btn-secondary btn-sm">
+        ← All Students
+        </a>
 
-<form method="POST">
+        <a href = "{{url_for('teachers')}}" class = "btn btn-secondary btn-sm">
+        ← All Teachers
+        </a>
+    <form method="POST" action="/search">
+        <label>Select Category:</label>
+        <select name="category">
+            <option value="student">Student</option>
+            <option value="teacher">Teacher</option>
+        </select>
 
-<input class="form-control mb-2"
-name="keyword"
-placeholder="Search Student ID, Name or Teacher Name">
+        <label>Search By:</label>
+        <select name="search_by">
+            <option value="id">ID</option>
+            <option value="name">Name</option>
+            <option value="contact">Contact Number</option>
+        </select>
 
-<button class="btn btn-dark">
-Search
-</button>
+        <label>Enter Value:</label>
+        <input type="text" name="search_value" placeholder="Enter ID, Name or Contact">
 
-</form>
+        <button type="submit">Search</button>
+    </form>
+</div>
 
-<hr>
-
-{% if result %}
-
-<table class="table table-bordered">
-
-<tr>
-<th>Result</th>
-</tr>
-
-{% for r in result %}
-<tr>
-<td>{{ r }}</td>
-</tr>
-{% endfor %}
-
-</table>
-
-{% endif %}
-
-{% endblock %}
+</body>
+</html>

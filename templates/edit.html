@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+
+{% block content %}
+
+@app.route('/edit_student/<int:id>', methods=['GET', 'POST'])
+def edit_student(id):
+
+    conn = get_connection()
+
+    student = conn.execute(
+        "SELECT * FROM students WHERE id=?",
+        (id,)
+    ).fetchone()
+
+    if request.method == 'POST':
+
+        student_id = request.form['student_id']
+        name = request.form['name']
+        subject = request.form['subject']
+        contact = request.form['contact']
+        admission_date = request.form['admission_date']
+
+        conn.execute("""
+        UPDATE students
+        SET student_id=?,
+            name=?,
+            subject=?,
+            contact=?,
+            admission_date=?
+        WHERE id=?
+        """,
+        (
+            student_id,
+            name,
+            subject,
+            contact,
+            admission_date,
+            id
+        ))
+
+        conn.commit()
+        conn.close()
+
+        return redirect('/students')
+
+        @app.route('/edit_teacher/<int:id>', methods=['GET', 'POST'])
+def edit_teacher(id):
+    conn = get_connection()
+    teacher = conn.execute(
+        "SELECT * FROM teachers WHERE id=?",
+        (id,)
+    ).fetchone()
+    if request.method == 'POST':
+        teacher_id = request.form['teacher_id']
+        teacher_name = request.form['teacher_name']
+        subject = request.form['subject']
+        contact = request.form['contact']
+
+        conn.execute("""
+        UPDATE teachers
+        SET teacher_id=?,
+            teacher_name=?,
+            subject=?,
+            contact=?
+        WHERE id=?
+        """,
+        (
+            teacher_id,
+            teacher_name,
+            subject,
+            contact,
+            id
+        ))
+
+        conn.commit()
+        conn.close()
+
+        return redirect('/teachers')
+
+    @app.route('/edit_subjects/<int:id>', methods=['GET', 'POST'])
+def edit_subjects(id):
+    conn = get_connection()
+    subject = conn.execute(
+        "SELECT * FROM subjects WHERE id=?",
+        (id,)
+    ).fetchone()
+    if request.method == 'POST':
+        subject_id = request.form['subject_id']
+        subject_name = request.form['subject_name']
+        duration = request.form['duration']
+        fees = request.form['fees']
+        teacher = request.form['teacher']
+        schedule = request.form['schedule']
+
+        conn.execute("""
+        UPDATE subjects
+        SET subject_id=?,
+            subject_name=?,
+            duration=?,
+            fees=?,
+            teacher=?,
+            schedule=?
+        WHERE id=?
+        """,
+        (
+            subject_id,
+            subject_name,
+            duration,
+            fees,
+            teacher,
+            schedule,
+            id
+        ))
+
+        conn.commit()
+        conn.close()
+
+        return redirect('/subjects')
+
+
+    conn.close()
+    return render_template(
+        'edit.html',
+        student=student,
+        teacher=teacher,
+        subjects=subjects
+    )

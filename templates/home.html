@@ -2,36 +2,51 @@
 
 {% block content %}
 
-<h1 class="text-center">Welcome to Coaching Class Manager</h1>
+<h1>Coaching Class Manager</h1>
 
 <div class="row mt-4">
 
 <div class="col-md-4">
-<div class="card text-center">
+<div class="card">
 <div class="card-body">
-<h3>Total Students</h3>
-<h2>{{ total_students }}</h2>
+<h4>Student Registration</h4>
+<a href="/students" class="btn btn-primary">
+View Students
+</a>
 </div>
 </div>
 </div>
 
 <div class="col-md-4">
-<div class="card text-center">
+<div class="card">
 <div class="card-body">
-<h3>Total Teachers</h3>
-<h2>{{ total_teachers }}</h2>
+<h4>Teacher Management</h4>
+<a href="/teachers" class="btn btn-success">
+View Teachers
+</a>
 </div>
 </div>
 </div>
 
 <div class="col-md-4">
-<div class="card text-center">
+<div class="card">
 <div class="card-body">
-<h3>Total Courses</h3>
-<h2>{{ total_courses }}</h2>
+<h4>Subject Management</h4>
+<a href="/subjects" class="btn btn-warning">
+View Subjects
+</a>
 </div>
 </div>
 </div>
+
+<footer class="bg-yellow text-dark text-center py-3 mt-5">
+        <p class="mb-1">coaching class manager about</p>
+        <p class="mb-0">1.MCQ test</p>
+        <p class="mb-0">2.Study materials</p>
+        <p class="mb-0">3.Online classes</p>
+    </footer>
+           
+
 
 </div>
 
