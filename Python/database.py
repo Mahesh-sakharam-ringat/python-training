@@ -1,14 +1,19 @@
+import os
 import sqlite3
 from flask import Flask, render_template, request, flash
 app = Flask(__name__)
 app.secret_key = 'your_secret_key'
 
+#absolute path - always with app.py folder
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+DB_PATH = os.path.join(BASE_DIR, 'coaching_manager.db')
 def get_db():
-    conn = sqlite3.connect('coaching.db')
+    """Database connection """
+    conn = sqlite3.connect(DB_PATH)
     conn.row_factory = sqlite3.Row
     return conn
 def init_db():
-    conn = sqlite3.connect("coaching.db")
+    conn = sqlite3.connect(DB_PATH)
     cur = conn.cursor()
 
     cur.execute("""
@@ -57,7 +62,7 @@ def init_db():
     conn.commit()
     conn.close()
 def get_db():
-    conn = sqlite3.connect("coaching.db")
+    conn = sqlite3.connect(DB_PATH)
     conn.row_factory = sqlite3.Row
     return conn
 
